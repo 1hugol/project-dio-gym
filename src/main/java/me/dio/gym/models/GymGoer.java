@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -25,22 +24,34 @@ public class GymGoer implements Serializable {
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
-    @Column(length = 50)
-    private String district;
-
     private LocalDate birthDate;
 
     private LocalDateTime registrationDate = LocalDateTime.now();
 
+    @Column(length = 9)
+    private String cep;
+    @Column(length = 50)
+    private String address;
+    @Column(length = 50)
+    private String district;
+    @Column(length = 30)
+    private String city;
+    @Column(length = 2)
+    private String state;
+
     @OneToMany(mappedBy = "gymGoerId")
     private Set<PhysicalEvaluation> physicalEvaluationList = new LinkedHashSet<>();
 
-    public GymGoer(Long id, String name, String cpf, String district, LocalDate birthDate) {
+    public GymGoer(Long id, String name, String cpf, LocalDate birthDate, String cep,String address, String district, String city, String state) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
-        this.district = district;
         this.birthDate = birthDate;
+        this.cep = cep;
+        this.address = address;
+        this.district = district;
+        this.city = city;
+        this.state = state;
     }
 
     public Long getId() {
@@ -67,6 +78,30 @@ public class GymGoer implements Serializable {
         this.cpf = cpf;
     }
 
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getDistrict() {
         return district;
     }
@@ -75,12 +110,20 @@ public class GymGoer implements Serializable {
         this.district = district;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public String getCity() {
+        return city;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public LocalDateTime getRegistrationDate() {

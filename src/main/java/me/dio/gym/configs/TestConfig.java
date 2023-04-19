@@ -23,8 +23,8 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        GymGoer g1 = new GymGoer(null,"Hugo", "00011122233", "Renascença", LocalDate.of(1992,12,16));
-        GymGoer g2 = new GymGoer(null,"Letícia", "33322211100", "Renascença", LocalDate.of(1993,12,28));
+        GymGoer g1 = new GymGoer(null,"Hugo", "00011122233", LocalDate.of(1992,12,16),"65000000","Avenida 1","Renascença", "São Luís","MA");
+        GymGoer g2 = new GymGoer(null,"Letícia", "33322211100", LocalDate.of(1993,12,28),"65000000","Avenida 1","Renascença", "São Luís","MA");
         gymGoerRepository.saveAll(Arrays.asList(g1, g2));
         PhysicalEvaluation p1 = new PhysicalEvaluation(null, g1, 75d, 1.70);
         PhysicalEvaluation p2 = new PhysicalEvaluation(null, g2, 65d, 1.65);
