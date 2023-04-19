@@ -19,8 +19,8 @@ public class GymGoerRequest {
     @NotBlank
     @CPF
     private String cpf;
-
-    @Size(max = 9)
+    @NotBlank
+    @Size(max = 8)
     private String cep;
 
     @Past
