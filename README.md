@@ -8,3 +8,10 @@ As dependências utilizadas foram:
 - H2 Database
 - Lombok
 
+Estou atualizando este repositório para demonstrar alguns padrões de projeto usando o Spring Framework. Foram explorados os seguintes padrões:
+
+- Singleton
+- Strategy/Repository  
+- Facade
+
+A atualização foi na forma de salvar o endereço do aluno que agora é obtido consumindo a API do Via Cep;
